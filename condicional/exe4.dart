@@ -5,19 +5,43 @@
 import "dart:io";
 
 main() {
+  var numero, maior1, maior2, maior3;
+
   print("Digite 4 valores inteiros: ");
-  var num1 = int.parse(stdin.readLineSync());
-  var num2 = int.parse(stdin.readLineSync());
-  var num3 = int.parse(stdin.readLineSync());
-  var num4 = int.parse(stdin.readLineSync());
-  var maior1, maior2;
+  numero = int.parse(stdin.readLineSync());
+  maior1 = numero;
 
-  // incompleto!
-  maior1 = maior(maior(num1, num2), maior(num3, num4));
+  numero = int.parse(stdin.readLineSync());
+  if (numero > maior1) {
+    maior2 = maior1;
+    maior1 = numero;
+  } else {
+    maior2 = numero;
+  }
 
-  print(maior1);
-}
+  numero = int.parse(stdin.readLineSync());
+  if (numero >= maior1) {
+    maior3 = maior2;
+    maior2 = maior1;
+    maior1 = numero;
+  } else if (numero > maior2) {
+    maior3 = maior2;
+    maior2 = numero;
+  } else {
+    maior3 = numero;
+  }
 
-int maior(var a, var b) {
-  return a >= b ? a : b;
+  numero = int.parse(stdin.readLineSync());
+  if (numero >= maior1) {
+    maior3 = maior2;
+    maior2 = maior1;
+    maior1 = numero;
+  } else if (numero >= maior2) {
+    maior3 = maior2;
+    maior2 = numero;
+  } else if (numero > maior3) {
+    maior3 = numero;
+  }
+
+  print("A ordem ficou $maior1 -> $maior2 -> $maior3. ");
 }
