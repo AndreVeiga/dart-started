@@ -6,7 +6,8 @@ import "dart:io";
 
 main() {
   // exerc1();
-  exerc2();
+  // exerc2();
+  exerc3();
 }
 
 /**
@@ -62,4 +63,27 @@ void exerc2() {
 
   print("O maior valor é $maior");
   print("O menor valor é $menor");
+}
+
+/**
+ * Faça um algoritmo que leia um valor N, representando a quantidade 
+ * de valores a serem lidos em seguida. Leia, a seguir, N valores e 
+ * escreva todos que forem positivos.
+ */
+void exerc3() {
+  print("Digite a quantidade de valores a serem lidos: ");
+  int quantidade = int.parse(stdin.readLineSync());
+  var positivos = [];
+  for (int indice = 1; indice <= quantidade; indice++) {
+    print("Digite o $indice.o valor: ");
+    int valor = int.parse(stdin.readLineSync());
+    if (valor > 0) {
+      positivos.add(valor);
+    }
+  }
+
+  print("Os valores positivos foram: ");
+  for (int i = 0; i < positivos.length; i++) {
+    print(positivos[i]);
+  }
 }
