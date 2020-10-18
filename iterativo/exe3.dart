@@ -7,7 +7,9 @@ import "dart:io";
 main() {
   // exerc1();
   // exerc2();
-  exerc3();
+  // exerc3();
+  // exerc4();
+  exerc5();
 }
 
 /**
@@ -85,5 +87,43 @@ void exerc3() {
   print("Os valores positivos foram: ");
   for (int i = 0; i < positivos.length; i++) {
     print(positivos[i]);
+  }
+}
+
+/**
+ * Faça um algoritmo que leia um valor N, e escreva todos os seus divisores. 
+ * Dica:Similar ao anterior, mas ao invés de escrever todos os valores, 
+ * escreva somente os que forem divisores de N.
+ */
+
+void exerc4() {
+  print("Digite o  valor: ");
+  int valor = int.parse(stdin.readLineSync());
+
+  for (int i = 1; i <= valor; i++) {
+    if (valor % i == 0) {
+      print("O $i é divisor de $valor");
+    }
+  }
+}
+
+/**
+ * Faça um algoritmo que leia um valor N inteiro e maior do que 1,
+ * e calcule e escreva o seu maior divisor (excetuando N).
+ */
+void exerc5() {
+  print("Escreva um valor inteiro (maior que 1): ");
+  int valor = int.parse(stdin.readLineSync());
+  if (valor > 1) {
+    int divisorMaior = 1;
+    for (int i = 1; i < valor; i++) {
+      if (valor % i == 0 && i > divisorMaior) {
+        divisorMaior = i;
+      }
+    }
+
+    print("O maior divisor de $valor é $divisorMaior");
+  } else {
+    print("Valor é menor que 1...");
   }
 }
